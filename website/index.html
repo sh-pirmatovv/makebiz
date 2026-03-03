@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeBiz MVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner shell">
+      <a class="brand" href="./index.html">MakeBiz</a>
+      <nav class="nav">
+        <a class="active" href="./index.html" data-i18n="nav_solution"></a>
+        <a href="./companies.html" data-i18n="nav_companies"></a>
+        <a href="./rfq.html" data-i18n="nav_rfq"></a>
+        <a href="./analytics.html" data-i18n="nav_analytics"></a>
+        <a href="./about.html" data-i18n="nav_about"></a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="toolbar">
+        <select class="lang" aria-label="Language">
+          <option value="ru">RU</option>
+          <option value="uz">UZ</option>
+          <option value="en">EN</option>
+        </select>
+        <button class="btn btn-soft login-btn" data-i18n="nav_login"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page shell">
+    <section class="hero fade-up">
+      <div>
+        <p class="kicker" data-i18n="hero_kicker"></p>
+        <h1 data-i18n="hero_title"></h1>
+        <p class="lead" data-i18n="hero_lead"></p>
+
+        <div class="search-wrap">
+          <input id="heroSearchInput" type="text" data-i18n-placeholder="hero_search_placeholder">
+          <button id="heroSearchBtn" class="btn btn-primary" data-i18n="hero_search_btn"></button>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-i18n="hero_mvp_btn"></button>
+          <button class="btn btn-soft" data-i18n="hero_memo_btn"></button>
+        </div>
+      </div>
+      <aside class="card hot-rfq">
+        <h3 data-i18n="hot_rfq_title"></h3>
+        <ul>
+          <li><button class="rfq-link" data-rfq-title="Packaging for FMCG line" data-rfq-budget="220000000"><span>Packaging for FMCG line</span><b>220 mln UZS</b></button></li>
+          <li><button class="rfq-link" data-rfq-title="Logistics Tashkent to Almaty" data-rfq-budget="160000000"><span>Logistics Tashkent → Almaty</span><b>160 mln UZS</b></button></li>
+          <li><button class="rfq-link" data-rfq-title="Agricultural raw material supply" data-rfq-budget="310000000"><span>Agricultural raw material supply</span><b>310 mln UZS</b></button></li>
+          <li><button class="rfq-link" data-rfq-title="ERP integration partner" data-rfq-budget="145000000"><span>ERP integration partner</span><b>145 mln UZS</b></button></li>
+          <li><button class="rfq-link" data-rfq-title="Construction material deal" data-rfq-budget="280000000"><span>Construction material deal</span><b>280 mln UZS</b></button></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section fade-up">
+      <h2 data-i18n="categories_title"></h2>
+      <div class="grid-2">
+        <div id="categoryList" class="category-list"></div>
+        <article class="tile">
+          <h3 data-i18n="cat_subtitle"></h3>
+          <div id="subcategoryList" class="chips"></div>
+          <p id="categoryHint" style="margin-top:10px;" data-i18n="cat_hint"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2 data-i18n="stats_title"></h2>
+      <div class="stats">
+        <article class="metric"><p class="label" data-i18n="stats_companies"></p><p class="value">52,480</p></article>
+        <article class="metric"><p class="label" data-i18n="stats_rfq"></p><p class="value">1,284</p></article>
+        <article class="metric"><p class="label" data-i18n="stats_regions"></p><p class="value">14</p></article>
+        <article class="metric"><p class="label" data-i18n="stats_score"></p><p class="value">74</p></article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2 data-i18n="how_title"></h2>
+      <div class="grid-3">
+        <article class="tile"><h3 data-i18n="how_1_title"></h3><p data-i18n="how_1_text"></p></article>
+        <article class="tile"><h3 data-i18n="how_2_title"></h3><p data-i18n="how_2_text"></p></article>
+        <article class="tile"><h3 data-i18n="how_3_title"></h3><p data-i18n="how_3_text"></p></article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2 data-i18n="roadmap_title"></h2>
+      <div class="timeline">
+        <div class="timeline-item"><p data-i18n="roadmap_1"></p></div>
+        <div class="timeline-item"><p data-i18n="roadmap_2"></p></div>
+        <div class="timeline-item"><p data-i18n="roadmap_3"></p></div>
+        <div class="timeline-item"><p data-i18n="roadmap_4"></p></div>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2 data-i18n="cta_title"></h2>
+      <p data-i18n="cta_text"></p>
+      <button class="btn btn-primary" data-i18n="cta_btn"></button>
+    </section>
+  </main>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <button id="aiFab" class="ai-fab" type="button">AI</button>
+  <aside id="aiPanel" class="ai-panel">
+    <header data-i18n="ai_title"></header>
+    <div id="aiMessages" class="body ai-chat-body"></div>
+    <form id="aiForm" class="ai-chat-form">
+      <input id="aiInput" class="input" data-i18n-placeholder="ai_placeholder">
+      <button class="btn btn-primary" type="submit" data-i18n="ai_send"></button>
+    </form>
+  </aside>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

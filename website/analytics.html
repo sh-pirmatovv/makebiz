@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeBiz • Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner shell">
+      <a class="brand" href="./index.html">MakeBiz</a>
+      <nav class="nav">
+        <a href="./index.html" data-i18n="nav_solution"></a>
+        <a href="./companies.html" data-i18n="nav_companies"></a>
+        <a href="./rfq.html" data-i18n="nav_rfq"></a>
+        <a class="active" href="./analytics.html" data-i18n="nav_analytics"></a>
+        <a href="./about.html" data-i18n="nav_about"></a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="toolbar">
+        <select class="lang" aria-label="Language"><option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option></select>
+        <button class="btn btn-soft login-btn" data-i18n="nav_login"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page shell">
+    <section class="section fade-up">
+      <h2 data-i18n="analytics_title"></h2>
+      <p data-i18n="analytics_lead"></p>
+
+      <div class="stats" style="margin-top:14px;">
+        <article class="metric"><p class="label" data-i18n="an_cov"></p><p class="value">52.4k</p></article>
+        <article class="metric"><p class="label" data-i18n="an_fresh"></p><p class="value">91%</p></article>
+        <article class="metric"><p class="label" data-i18n="an_dedup"></p><p class="value">96.7%</p></article>
+        <article class="metric"><p class="label" data-i18n="an_conv"></p><p class="value">12.8%</p></article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <div class="grid-2">
+        <article class="tile">
+          <h3 data-i18n="an_score_dist"></h3>
+          <div class="bars">
+            <div><small>80-100</small><div class="bar"><span style="width:34%"></span></div></div>
+            <div><small>65-79</small><div class="bar"><span style="width:41%"></span></div></div>
+            <div><small>50-64</small><div class="bar"><span style="width:18%"></span></div></div>
+            <div><small>&lt;50</small><div class="bar"><span style="width:7%"></span></div></div>
+          </div>
+        </article>
+
+        <article class="tile">
+          <h3 data-i18n="an_region_perf"></h3>
+          <div class="bars">
+            <div><small>Toshkent</small><div class="bar"><span style="width:92%"></span></div></div>
+            <div><small>Samarqand</small><div class="bar"><span style="width:74%"></span></div></div>
+            <div><small>Farg'ona</small><div class="bar"><span style="width:61%"></span></div></div>
+            <div><small>Buxoro</small><div class="bar"><span style="width:45%"></span></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <button id="aiFab" class="ai-fab" type="button">AI</button>
+  <aside id="aiPanel" class="ai-panel">
+    <header data-i18n="ai_title"></header>
+    <div id="aiMessages" class="body ai-chat-body"></div>
+    <form id="aiForm" class="ai-chat-form">
+      <input id="aiInput" class="input" data-i18n-placeholder="ai_placeholder">
+      <button class="btn btn-primary" type="submit" data-i18n="ai_send"></button>
+    </form>
+  </aside>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

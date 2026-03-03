@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeBiz • Companies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner shell">
+      <a class="brand" href="./index.html">MakeBiz</a>
+      <nav class="nav">
+        <a href="./index.html" data-i18n="nav_solution"></a>
+        <a class="active" href="./companies.html" data-i18n="nav_companies"></a>
+        <a href="./rfq.html" data-i18n="nav_rfq"></a>
+        <a href="./analytics.html" data-i18n="nav_analytics"></a>
+        <a href="./about.html" data-i18n="nav_about"></a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="toolbar">
+        <select class="lang" aria-label="Language"><option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option></select>
+        <button class="btn btn-soft login-btn" data-i18n="nav_login"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page shell">
+    <section class="section fade-up">
+      <h2 data-i18n="companies_title"></h2>
+      <p data-i18n="companies_lead"></p>
+
+      <div class="filters">
+        <input class="input" id="filterQuery" data-i18n-placeholder="filter_query">
+        <select class="select" id="filterRegion"><option value="" data-i18n="filter_region"></option></select>
+        <select class="select" id="filterSector"><option value="" data-i18n="filter_sector"></option></select>
+        <select class="select" id="filterStability"><option value="" data-i18n="filter_stability"></option></select>
+        <select class="select" id="filterLegalForm"><option value="" data-i18n="filter_legal_form"></option></select>
+        <select class="select" id="filterThsht"><option value="" data-i18n="filter_thsht"></option></select>
+      </div>
+      <div style="margin-top:10px;">
+        <button id="applyFilters" class="btn btn-primary" data-i18n="filter_btn"></button>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th data-i18n="col_name"></th>
+              <th data-i18n="col_thsht"></th>
+              <th data-i18n="col_inn"></th>
+              <th data-i18n="col_region"></th>
+              <th data-i18n="col_oked"></th>
+              <th data-i18n="col_legal_form"></th>
+              <th data-i18n="col_status"></th>
+              <th data-i18n="col_stability"></th>
+              <th data-i18n="col_score"></th>
+              <th data-i18n="col_action"></th>
+            </tr>
+          </thead>
+          <tbody id="companiesBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <button id="aiFab" class="ai-fab" type="button">AI</button>
+  <aside id="aiPanel" class="ai-panel">
+    <header data-i18n="ai_title"></header>
+    <div id="aiMessages" class="body ai-chat-body"></div>
+    <form id="aiForm" class="ai-chat-form">
+      <input id="aiInput" class="input" data-i18n-placeholder="ai_placeholder">
+      <button class="btn btn-primary" type="submit" data-i18n="ai_send"></button>
+    </form>
+  </aside>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeBiz • Command Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner shell">
+      <a class="brand" href="./index.html">MakeBiz</a>
+      <nav class="nav">
+        <a href="./index.html" data-i18n="nav_solution"></a>
+        <a href="./companies.html" data-i18n="nav_companies"></a>
+        <a href="./rfq.html" data-i18n="nav_rfq"></a>
+        <a href="./analytics.html" data-i18n="nav_analytics"></a>
+        <a href="./about.html" data-i18n="nav_about"></a>
+        <a class="active" href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="toolbar">
+        <select class="lang" aria-label="Language"><option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option></select>
+        <button class="btn btn-soft login-btn" data-i18n="nav_login"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page shell">
+    <section class="section fade-up">
+      <h2>MakeBiz Command Center</h2>
+      <p>Операционный дашборд: аналитика, качество данных, конфликтные записи, редактирование карточек компаний и мониторинг API.</p>
+      <div class="tile" style="margin-top:12px;">
+        <div class="container-control">
+          <h3 style="margin:0;">Container Width</h3>
+          <div class="container-control-row">
+            <input id="containerWidthSlider" type="range" min="82" max="98" step="1" value="93">
+            <strong id="containerWidthValue">93%</strong>
+          </div>
+          <p style="margin:0;">Регулировка ширины контента для всех страниц (сохраняется в браузере).</p>
+        </div>
+      </div>
+      <div class="stats" id="summaryCards"></div>
+    </section>
+
+    <section class="section fade-up">
+      <div class="grid-2">
+        <article class="tile">
+          <h3>Scoring Distribution</h3>
+          <div id="scoringBars" class="bars"></div>
+        </article>
+        <article class="tile">
+          <h3>Data Quality Coverage</h3>
+          <div id="qualityBars" class="bars"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <div class="grid-3">
+        <article class="tile">
+          <h3>Top Categories</h3>
+          <div class="table-wrap">
+            <table class="table" id="categoriesTable">
+              <thead><tr><th>Category</th><th>Companies</th><th>Avg Score</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="tile">
+          <h3>Activity Statuses</h3>
+          <div class="table-wrap">
+            <table class="table" id="statusTable">
+              <thead><tr><th>Status</th><th>Companies</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="tile">
+          <h3>Missing Fields</h3>
+          <div class="table-wrap">
+            <table class="table" id="missingTable">
+              <thead><tr><th>Field</th><th>Missing</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Regional Performance</h2>
+      <div class="table-wrap">
+        <table class="table" id="regionsTable">
+          <thead>
+            <tr><th>Region</th><th>Companies</th><th>Avg Score</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <div class="grid-2">
+        <article>
+          <h2>Top Score Companies</h2>
+          <div class="table-wrap">
+            <table class="table" id="topCompaniesTable">
+              <thead><tr><th>Company</th><th>INN</th><th>Region</th><th>Score</th><th>Updated</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+        <article>
+          <h2>Weakest Score Companies</h2>
+          <div class="table-wrap">
+            <table class="table" id="weakCompaniesTable">
+              <thead><tr><th>Company</th><th>INN</th><th>Region</th><th>Score</th><th>Updated</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Recent Updates</h2>
+      <div class="table-wrap">
+        <table class="table" id="recentUpdatesTable">
+          <thead><tr><th>ID</th><th>Company</th><th>INN</th><th>Category</th><th>Region</th><th>Score</th><th>Updated</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Dedup Conflicts</h2>
+      <div class="table-wrap">
+        <table class="table" id="conflictsTable">
+          <thead><tr><th>ID</th><th>Reason</th><th>Confidence</th><th>Status</th><th>Company A</th><th>Company B</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Pipeline Runs</h2>
+      <div class="table-wrap">
+        <table class="table" id="runsTable">
+          <thead>
+            <tr><th>ID</th><th>Source</th><th>Status</th><th>Rows In</th><th>Rows Out</th><th>Started</th><th>Finished</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Company Data Editor</h2>
+      <div class="filters editor-filters">
+        <input id="editorQuery" class="input" placeholder="Поиск: имя / ИНН">
+        <input id="editorRegion" class="input" placeholder="Регион">
+        <input id="editorSector" class="input" placeholder="Категория">
+      </div>
+      <div class="editor-toolbar">
+        <select id="editorSort" class="select">
+          <option value="score_desc">Score desc</option>
+          <option value="score_asc">Score asc</option>
+          <option value="updated_desc">Updated desc</option>
+          <option value="name_asc">Name asc</option>
+        </select>
+        <button id="editorApply" class="btn btn-primary" type="button">Apply</button>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="editorTable">
+          <thead><tr><th>ID</th><th>Company</th><th>INN</th><th>Region</th><th>Category</th><th>Score</th><th>Updated</th><th>Edit</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="editor-pager">
+        <button id="editorPrev" class="btn btn-soft" type="button">Prev</button>
+        <span id="editorPageInfo">Page 1</span>
+        <button id="editorNext" class="btn btn-soft" type="button">Next</button>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Live API Check</h2>
+      <div class="grid-3">
+        <article class="tile"><h3>Health</h3><p id="healthStatus">Checking...</p></article>
+        <article class="tile"><h3>Companies API</h3><p id="companiesApiStatus">Checking...</p></article>
+        <article class="tile"><h3>RFQ API</h3><p id="rfqApiStatus">Checking...</p></article>
+      </div>
+    </section>
+
+    <section class="section fade-up">
+      <h2>Operations Log</h2>
+      <p>Системные действия: мультиворкер, merge, parse, ручные обновления компаний, RFQ и офферы.</p>
+      <div class="log-window" id="opsLogWindow"></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="editorModalBackdrop">
+    <div class="modal modal-wide">
+      <h3>Edit Company</h3>
+      <p>Пустые значения автоматически сохраняются как <strong>-</strong> или <strong>0</strong>.</p>
+      <form id="editorForm" class="modal-grid modal-grid-2">
+        <input type="hidden" id="edit_id">
+        <label>Company Name<input id="edit_company_name" class="input" required></label>
+        <label>Short Name<input id="edit_short_name" class="input"></label>
+        <label>INN<input id="edit_inn" class="input"></label>
+        <label>Registration Date<input id="edit_registration_date" class="input" placeholder="DD.MM.YYYY"></label>
+        <label>Activity Status<input id="edit_activity_status" class="input"></label>
+        <label>Registration Authority<input id="edit_registration_authority" class="input"></label>
+        <label>THSHT<input id="edit_thsht" class="input"></label>
+        <label>DBIBT<input id="edit_dbibt" class="input"></label>
+        <label>IFUT<input id="edit_ifut" class="input"></label>
+        <label>Charter Capital UZS<input id="edit_charter_capital_uzs" class="input" type="number" min="0"></label>
+        <label>Email<input id="edit_email" class="input"></label>
+        <label>Phone<input id="edit_phone" class="input"></label>
+        <label class="full">Address<input id="edit_address" class="input"></label>
+        <label>Region<input id="edit_region" class="input"></label>
+        <label>District<input id="edit_district" class="input"></label>
+        <label>Category<input id="edit_category" class="input"></label>
+        <label>Tax Committee<input id="edit_tax_committee" class="input"></label>
+        <label>Large Taxpayer<input id="edit_large_taxpayer" class="input"></label>
+        <label>Director<input id="edit_director" class="input"></label>
+        <label class="full">Founders<textarea id="edit_founders" class="input" rows="2"></textarea></label>
+        <label>Employees Count<input id="edit_employees_count" class="input" type="number" min="0"></label>
+        <label>Branch Count<input id="edit_branch_count" class="input" type="number" min="0"></label>
+        <label class="full">Source URL<input id="edit_source_url" class="input"></label>
+        <div class="modal-actions full">
+          <button id="editorCancel" class="btn btn-soft" type="button">Cancel</button>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <button id="aiFab" class="ai-fab" type="button">AI</button>
+  <aside id="aiPanel" class="ai-panel">
+    <header data-i18n="ai_title"></header>
+    <div id="aiMessages" class="body ai-chat-body"></div>
+    <form id="aiForm" class="ai-chat-form">
+      <input id="aiInput" class="input" data-i18n-placeholder="ai_placeholder">
+      <button class="btn btn-primary" type="submit" data-i18n="ai_send"></button>
+    </form>
+  </aside>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

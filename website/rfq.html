@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeBiz • RFQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner shell">
+      <a class="brand" href="./index.html">MakeBiz</a>
+      <nav class="nav">
+        <a href="./index.html" data-i18n="nav_solution"></a>
+        <a href="./companies.html" data-i18n="nav_companies"></a>
+        <a class="active" href="./rfq.html" data-i18n="nav_rfq"></a>
+        <a href="./analytics.html" data-i18n="nav_analytics"></a>
+        <a href="./about.html" data-i18n="nav_about"></a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="toolbar">
+        <select class="lang" aria-label="Language"><option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option></select>
+        <button class="btn btn-soft login-btn" data-i18n="nav_login"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page shell">
+    <section class="section fade-up">
+      <h2 data-i18n="rfq_title"></h2>
+      <p data-i18n="rfq_lead"></p>
+      <div class="grid-2">
+        <article class="tile">
+          <h3 data-i18n="rfq_form_title"></h3>
+          <form id="rfqForm" class="form-grid">
+            <input id="rfqCompany" class="input" data-i18n-placeholder="rfq_company" required>
+            <input id="rfqNeed" class="input" data-i18n-placeholder="rfq_need" required>
+            <input id="rfqBudget" class="input" data-i18n-placeholder="rfq_budget" inputmode="numeric">
+            <input id="rfqDeadline" class="input" type="date" aria-label="deadline">
+            <textarea id="rfqDetails" class="full" data-i18n-placeholder="rfq_details" rows="5"></textarea>
+            <button class="btn btn-primary full" type="submit" data-i18n="rfq_submit"></button>
+          </form>
+        </article>
+        <article class="tile">
+          <h3 data-i18n="rfq_flow_title"></h3>
+          <div id="rfqList" class="timeline"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <button id="aiFab" class="ai-fab" type="button">AI</button>
+  <aside id="aiPanel" class="ai-panel">
+    <header data-i18n="ai_title"></header>
+    <div id="aiMessages" class="body ai-chat-body"></div>
+    <form id="aiForm" class="ai-chat-form">
+      <input id="aiInput" class="input" data-i18n-placeholder="ai_placeholder">
+      <button class="btn btn-primary" type="submit" data-i18n="ai_send"></button>
+    </form>
+  </aside>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
